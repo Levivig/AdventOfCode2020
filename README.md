@@ -1,4 +1,4 @@
-# AdventOfCode2019
+# AdventOfCode2020
 
 ## Usage
 
