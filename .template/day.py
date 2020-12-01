@@ -3,6 +3,7 @@
 
 
 import os
+import time
 
 
 dirname = os.path.dirname(__file__)
@@ -26,8 +27,10 @@ def main():
     print(currentDay)
     with open(inputfile) as f:
         data = f.read().splitlines()
+        start_time = time.time()
         part1(data)
         part2(data)
+        print("--- %s seconds ---" % (time.time() - start_time))
 
 
 if __name__ == "__main__":
