@@ -3,6 +3,7 @@
 
 
 import os
+from operator import xor
 import time
 
 
@@ -27,7 +28,7 @@ def part1(data):
             correct_count += 1
 
     print(correct_count)
-    return 469
+    return correct_count
 
 
 def part2(data):
@@ -42,7 +43,7 @@ def part2(data):
         first_rule = int(rule[0]) - 1
         second_rule = int(rule[1]) - 1
 
-        if (password[first_rule] == letter and password[second_rule] != letter) or (password[first_rule] != letter and password[second_rule] == letter):
+        if xor(password[first_rule] == letter, password[second_rule] == letter):
             correct_count += 1
     
     print(correct_count)
