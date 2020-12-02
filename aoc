@@ -7,6 +7,12 @@ if [ "$1" = "--newday" ]; then
     mkdir $currentDay
     cp ./.template/day.py ./$currentDay/"$currentDay.py"
     cp ./.template/input.txt ./$currentDay/input.txt
+elif [ "$2" = "--newday" ]; then
+    currentDay="day$1"
+
+    mkdir $currentDay
+    cp ./.template/day.py ./$currentDay/"$currentDay.py"
+    cp ./.template/input.txt ./$currentDay/input.txt
 else
     currentDay="day$1"
     python $currentDay/"$currentDay.py"
