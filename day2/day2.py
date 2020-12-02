@@ -12,14 +12,41 @@ inputfile = os.path.join(dirname, 'input.txt')
 
 def part1(data):
     print('part1:')
+    correct_count = 0
     for line in data:
-        print(line)
+        splitted = line.split(" ")
+        rule = splitted[0].split('-')
+        letter = splitted[1][0]
+        password = splitted[2]
+
+        occurance = password.count(letter)
+        min_rule = int(rule[0])
+        max_rule = int(rule[1])
+
+        if occurance in range(min_rule, max_rule + 1):
+            correct_count += 1
+
+    print(correct_count)
+    return 469
 
 
 def part2(data):
     print('part2:')
+    correct_count = 0
     for line in data:
-        print(line)
+        splitted = line.split(" ")
+        rule = splitted[0].split('-')
+        letter = splitted[1][0]
+        password = splitted[2]
+
+        first_rule = int(rule[0]) - 1
+        second_rule = int(rule[1]) - 1
+
+        if (password[first_rule] == letter and password[second_rule] != letter) or (password[first_rule] != letter and password[second_rule] == letter):
+            correct_count += 1
+    
+    print(correct_count)
+    return correct_count
 
 
 def main():
@@ -28,8 +55,8 @@ def main():
     with open(inputfile) as f:
         data = f.read().splitlines()
         start_time = time.time()
-        part1(data)
-        part2(data)
+        assert part1(data) == 469
+        assert part2(data) == 267
         print("--- %s seconds ---" % (time.time() - start_time))
 
 
