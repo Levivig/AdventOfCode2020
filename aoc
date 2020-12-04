@@ -15,5 +15,5 @@ elif [ "$2" = "--newday" ]; then
     cp ./.template/input.txt ./$currentDay/input.txt
 else
     currentDay="day$1"
-    python $currentDay/"$currentDay.py"
+    python3 $currentDay/"$currentDay.py"
 fi
