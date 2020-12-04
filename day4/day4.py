@@ -54,42 +54,13 @@ def main():
 
 
 def containsAllFields(dict):
+    requiredFields = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"]
 
-    if 'byr' not in dict.keys():
-        return False
-    elif dict['byr'] == None or dict['byr'] == "":
-        return False
-
-    if 'iyr' not in dict.keys():
-        return False
-    elif dict['iyr'] == None or dict['iyr'] == "":
-        return False
-
-    if 'eyr' not in dict.keys():
-        return False
-    elif dict['eyr'] == None or dict['eyr'] == "":
-        return False
-    
-    if 'hgt' not in dict.keys():
-        return False
-    elif dict['hgt'] == None or dict['hgt'] == "":
-        return False
-
-    if 'ecl' not in dict.keys():
-        return False
-    elif dict['ecl'] == None or dict['ecl'] == "":
-        return False
-    
-    if 'hcl' not in dict.keys():
-        return False
-    elif dict['hcl'] == None or dict['hcl'] == "":
-        return False
-    
-    if 'pid' not in dict.keys():
-        return False
-    elif dict['pid'] == None or dict['pid'] == "":
-        return False
-
+    for field in requiredFields:
+        if field not in dict.keys():
+            return False
+        elif dict[field] == None or dict[field] == '':
+            return False
     return True
 
 
